@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test prod env
+        run: echo "Testing prod env ${{ vars.IMAGE }}"
